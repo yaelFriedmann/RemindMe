@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RemindME</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="titleText">Title</string>
+    <string name="setReminder">Set Reminder</string>
+    <string name="when">When</string>
+    <string name="where">Where</string>
+    <string name="title_activity_add_reminder">add_reminder</string>
+    <string name="title_activity_add_reminder_activity">Add Reminder</string>
+    <string name="title_activity_show_reminders">show_reminders</string>
+
+</resources>

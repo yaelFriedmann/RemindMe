@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+
+    <ImageView
+        android:id="@+id/when_or_when_image"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:src="@drawable/time"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/when_or_when_image"
+        android:layout_toRightOf="@+id/when_or_when_image"
+        android:layout_alignBottom="@+id/when_or_when_image"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp">
+      <TextView
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:textSize="13sp"
+            android:id="@+id/reminder_title"
+            android:text="8888"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp">
+        </TextView>
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="97dp"
+            android:textSize="10sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
+      </LinearLayout>
+
+</RelativeLayout>
+

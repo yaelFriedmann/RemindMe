@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.example.yael.remindme.add_reminder_activity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setReminder"
+        android:id="@+id/setReminder"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textSize="25sp"
+        android:layout_alignParentRight="true"
+        android:background="#ffc9dcff" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TitleText"
+        android:hint="@string/titleText"
+        android:layout_below="@+id/setReminder"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+    <RadioGroup
+        android:id="@+id/radioGroupWhenWhere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/TitleText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp">
+        <RadioButton
+            android:id="@+id/radioWhen"
+            android:layout_width="0dp"
+            android:layout_weight="1.8"
+            android:layout_height="wrap_content"
+            android:text="@string/when"
+            android:checked="true"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/radioWhere"
+            android:layout_width="0dp"
+            android:layout_weight="2.60"
+            android:layout_height="wrap_content"
+            android:text="@string/where"
+            android:textSize="20sp"/>
+    </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:id="@+id/Date"
+        android:layout_weight="1"
+        android:text="Add date"
+        android:focusable="false"
+        android:layout_below="@+id/radioGroupWhenWhere"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/buttonAddReminder"
+        android:layout_alignEnd="@+id/buttonAddReminder"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:focusable="false"
+        android:text="Add Time"
+        android:id="@+id/Time"
+        android:layout_below="@+id/Date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/buttonAddReminder"
+        android:layout_alignEnd="@+id/buttonAddReminder"
+        android:layout_marginTop="10dp" />
+
+     <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/buttonAddReminder"
+            android:onClick="AddReminder"
+            android:layout_gravity="right"
+            android:layout_below="@+id/Time"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
