@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.sleepbot.datetimepicker.time.RadialPickerLayout;
+
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,8 +27,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class add_reminder_activity extends Activity {
+public class add_reminder_activity extends FragmentActivity implements com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener, com.sleepbot.datetimepicker.time.TimePickerDialog.OnTimeSetListener {
 
+    public static final String DATEPICKER_TAG = "datepicker";
+    public static final String TIMEPICKER_TAG = "timepicker";
     public final static String New_Reminder = "New_Reminder";
     private RadioGroup radioGroupWhenWhere;
     private Reminder reminder;
@@ -42,6 +47,9 @@ public class add_reminder_activity extends Activity {
     static final int DATE_DIALOG_ID = 999;
     static final int TIME_DIALOG_ID = 998;
 
+    com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog;
+    com.sleepbot.datetimepicker.time.TimePickerDialog timePickerDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +58,14 @@ public class add_reminder_activity extends Activity {
         addListenerOnEditDate();
         addListenerOnEditTime();
         addListenerLocationTimeRadioGroup();
+        SetDatePicker();
 
+    }
+
+    private void SetDatePicker() {
+        final Calendar calendar = Calendar.getInstance();
+        datePickerDialog = com.fourmob.datetimepicker.date.DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), false);
+        timePickerDialog = com.sleepbot.datetimepicker.time.TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false, false);
     }
 
     private void addCurrentTime()
@@ -99,15 +114,18 @@ public class add_reminder_activity extends Activity {
     }
 
     private void addListenerOnEditDate() {
-        DisplayDate = (EditText) findViewById(R.id.Date);
-        DisplayDate.setOnClickListener(new View.OnClickListener() {
+        datePickerDialog.setYearRange(1985, 2028);
+        datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
 
-            @Override
-            public void onClick(View v) {
-                showDialog(DATE_DIALOG_ID);
-            }
-
-        });
+//        DisplayDate = (EditText) findViewById(R.id.Date);
+//        DisplayDate.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                showDialog(DATE_DIALOG_ID);
+//            }
+//
+//        });
     }
 
     @Override
@@ -218,4 +236,13 @@ public class add_reminder_activity extends Activity {
     }
 
 
+    @Override
+    public void onDateSet(com.fourmob.datetimepicker.date.DatePickerDialog datePickerDialog, int year, int month, int day) {
+
+    }
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+
+    }
 }
